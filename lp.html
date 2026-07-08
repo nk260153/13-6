@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #fff; }
+
+    /* Layout */
+    .lp { background: #fff; display: flex; flex-direction: column; gap: 64px; align-items: center; padding: 48px 24px; width: 100%; }
+
+    /* Nav */
+    .nav { height: 35px; width: 100%; flex-shrink: 0; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 10px; width: 100%; height: 100%; }
+    .logo { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 20px; color: #1e1e1e; line-height: 1.2; white-space: nowrap; }
+
+    /* Buttons */
+    .btn { border-radius: 8px; flex-shrink: 0; border: none; cursor: pointer; }
+    .btn-dark { background: #2c2c2c; outline: 1px solid #2c2c2c; }
+    .btn-light { background: #e3e3e3; outline: 1px solid #767676; }
+    .btn-inner { display: flex; gap: 8px; align-items: center; justify-content: center; padding: 12px; }
+    .btn-dark .btn-label { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; color: #f5f5f5; line-height: 1; white-space: nowrap; }
+    .btn-light .btn-label { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; color: #1e1e1e; line-height: 1; white-space: nowrap; }
+
+    /* Hero */
+    .hero { width: 100%; flex-shrink: 0; }
+    .hero-inner { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; padding: 10px; }
+    .hero-title { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 48px; color: #1e1e1e; line-height: 1.2; letter-spacing: -0.96px; white-space: nowrap; }
+    .hero-sub { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 20px; color: #1e1e1e; line-height: 1.2; white-space: nowrap; }
+    .actions { display: flex; gap: 12px; align-items: flex-start; flex-shrink: 0; }
+
+    /* Features */
+    .features { background: #f5f5f5; border-radius: 16px; width: 100%; flex-shrink: 0; overflow: hidden; }
+    .features-inner { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; padding: 32px; }
+    .features-title { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 24px; color: #1e1e1e; line-height: 1.2; letter-spacing: -0.48px; white-space: nowrap; }
+    .cards { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+
+    /* Product Card */
+    .card { background: #fff; border-radius: 12px; width: 280px; flex-shrink: 0; overflow: hidden; outline: 1px solid #d9d9d9; position: relative; }
+    .thumbnail { background: #d9d9d9; height: 160px; display: flex; align-items: center; justify-content: center; width: 100%; }
+    .thumbnail-label { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 20px; color: #1e1e1e; line-height: 1.4; white-space: nowrap; }
+    .card-body { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; padding: 24px; width: 100%; }
+    .card-name { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 20px; color: #1f2937; line-height: 1.4; }
+    .card-desc { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 14px; color: #6b7280; line-height: 1.7; }
+    .card-price { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 18px; color: #e11d48; line-height: 1.4; }
+    .btn-buy-wrap { height: 30px; position: relative; border-radius: 12px; flex-shrink: 0; width: 108px; }
+    .btn-buy { background: #2563eb; display: flex; align-items: center; justify-content: center; padding: 16px 24px; border-radius: 12px; border: none; cursor: pointer; height: 47px; width: 108px; position: absolute; top: 0; left: 0; }
+    .btn-buy-label { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; color: #fff; text-align: center; line-height: 1; white-space: nowrap; }
+
+    /* CTA */
+    .cta { background: #2c2c2c; border-radius: 16px; width: 100%; flex-shrink: 0; overflow: hidden; }
+    .cta-inner { display: flex; flex-direction: column; gap: 24px; align-items: center; padding: 48px 24px; }
+    .cta-title { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 24px; color: #f5f5f5; line-height: 1.2; letter-spacing: -0.48px; white-space: nowrap; }
+
+    /* Footer */
+    .footer { display: flex; align-items: center; justify-content: center; padding: 10px; flex-shrink: 0; }
+    .footer-text { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 14px; color: #1e1e1e; line-height: 1.4; white-space: nowrap; }
+  </style>
+</head>
+<body>
+  <div class="lp">
+    <!-- Nav -->
+    <nav class="nav">
+      <div class="nav-inner">
+        <p class="logo">ロゴ</p>
+        <button class="btn btn-dark">
+          <div class="btn-inner"><span class="btn-label">Button</span></div>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="hero-title">大見出し</p>
+        <p class="hero-sub">一言</p>
+        <div class="actions">
+          <button class="btn btn-dark"><div class="btn-inner"><span class="btn-label">Button</span></div></button>
+          <button class="btn btn-light"><div class="btn-inner"><span class="btn-label">Button</span></div></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+      <div class="features-inner">
+        <p class="features-title">見出し</p>
+        <div class="cards">
+          <!-- Card 1 -->
+          <div class="card">
+            <div class="thumbnail"><p class="thumbnail-label">商品画像</p></div>
+            <div class="card-body">
+              <p class="card-name">ワイヤレスイヤホン</p>
+              <div class="card-desc"><p>軽量で長時間再生できるBluetooth</p><p>イヤホン。</p></div>
+              <p class="card-price">￥4,980</p>
+              <div class="btn-buy-wrap">
+                <button class="btn-buy"><span class="btn-buy-label">購入する</span></button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="card">
+            <div class="thumbnail"><p class="thumbnail-label">商品画像</p></div>
+            <div class="card-body">
+              <p class="card-name">ワイヤレスイヤホン</p>
+              <div class="card-desc"><p>軽量で長時間再生できるBluetooth</p><p>イヤホン。</p></div>
+              <p class="card-price">￥4,980</p>
+              <div class="btn-buy-wrap">
+                <button class="btn-buy"><span class="btn-buy-label">購入する</span></button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="card">
+            <div class="thumbnail"><p class="thumbnail-label">商品画像</p></div>
+            <div class="card-body">
+              <p class="card-name">ワイヤレスイヤホン</p>
+              <div class="card-desc"><p>軽量で長時間再生できるBluetooth</p><p>イヤホン。</p></div>
+              <p class="card-price">￥4,980</p>
+              <div class="btn-buy-wrap">
+                <button class="btn-buy"><span class="btn-buy-label">購入する</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="cta-inner">
+        <p class="cta-title">見出し</p>
+        <button class="btn btn-light"><div class="btn-inner"><span class="btn-label">Button</span></div></button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p class="footer-text">Figma's Simple Design System UI Kit is licensed by Figma under CC BY 4.0.</p>
+    </footer>
+  </div>
+</body>
+</html>
